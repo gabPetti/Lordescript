@@ -1,59 +1,84 @@
 grammar Lordescript;
 
 prog:
-	'Caro compilador,\n\n' BLOCK 'Assinado com distinção,\nLordescript';
+	'Caro' 'compilador' COMMA block? 'Assinado' 'com' 'distinção' COMMA 'Lordescript';
 
-BLOCK: (CMD)+;
+block: (cmd)+;
 
-CMD: CMD_READ | CMD_COMPARE | CMD_WRITE | CMD_ASSIGN | IF;
+cmd: cmdRead | cmdLogic | cmdWrite | cmd_assign | if_stmt;
+
+cmdRead:
+	'Ordeno' 'que' 'mostre' 'ao' 'mundo' 'o' 'valor de' ID SEMICOLON;
+
+cmdWrite: ESCREVO ID SEMICOLON;
+ESCREVO: 'Escrevo' 'humildemente' 'o' 'valor' 'de';
+cmd_assign:
+	'Declaro' 'que' 'o' type ID SERA 'agraciado' 'com' 'o' 'valor' VALUE SEMICOLON;
+SERA: 'será';
+
+cmdLogic: (ID | VALUE) COMPARE (ID | VALUE);
+
+COMMENT: '/*' .*? '*/' -> skip;
 
 // if statement
-IF:
-	'Se porventura ' { System.out.println("IF");} CMD_COMPARE ', então:' BLOCK (
-		ELIF
-	)* (ELSE)?;
+if_stmt:
+	'Se' 'porventura' cmdLogic COMMA 'logo' COLON block (
+		elif_stmt
+	)* (else_stmt)? 'Assim' 'finaliza-se' 'a' HIPOTESE DOT;
+HIPOTESE: 'hipótese';
 
-ELIF: 'Porém, se ' CMD_COMPARE ', então:' BLOCK;
+elif_stmt:
+	'Contudo' COMMA 'se' cmdLogic COMMA 'logo' COLON block;
 
-ELSE: 'Caso contrário:' BLOCK;
+else_stmt: 'Caso' CONTRARIO COLON block;
+CONTRARIO: 'contrário';
+
+LOGO: 'logo';
 
 // while statement
-WHILE:
-	'Enquanto ' CMD_COMPARE ', então:' BLOCK 'e repita até que a condição não seja mais verdadeira;'
-		;
+while:
+	'Enquanto' cmdLogic ', logo:' block 'e repita até que a condição não seja mais verdadeira;';
 
-DO_WHILE:
-	'Seria conveniente que as seguintes medidas sejam tomadas:' BLOCK 'Enquanto ' CMD_COMPARE;
-
-CMD_COMPARE: (ID | VALUE) COMPARE (ID | VALUE);
+do_while:
+	'Seria conveniente que as seguintes medidas sejam tomadas:' block 'Enquanto ' cmdLogic;
 
 COMPARE:
 	'revelar-se como maior que'
 	| 'revelar-se como menor que'
 	| 'revelar-se como igual a';
 
-CMD_READ: 'Ordeno que mostre ao mundo o valor de ' ID ';';
+type: DUAL | PERGAMINHO | INTEIRO | FRACIONARIO | CAPITULAR;
+DUAL: 'dual';
+PERGAMINHO: 'pergaminho';
+INTEIRO: 'inteiro';
+FRACIONARIO: 'fracionário';
+CAPITULAR: 'capitular';
 
-CMD_WRITE: 'Escrevo com elegância o valor de ' ID ';';
+ID: [a-zA-Z_][a-zA-Z0-9_]*;
 
-CMD_ASSIGN:
-	'Declaro que o ' TYPE ' ' ID ' é agraciado com o valor ' VALUE ';';
-
-TYPE:
-	'dual'
-	| 'pergaminho'
-	| 'numérico'
-	| 'fracional'
-	| 'capitular';
-
-ID: [a-z]([a-z] | [A-Z] | [0-9])*;
-
-VALUE: NUMBER | STRING | BOOL;
+VALUE: EXPR | STRING | BOOL | FLOAT | INTEGER;
 
 STRING: '"' (~["\r\n])* '"';
 
 BOOL: 'digno' | 'indigno';
 
-NUMBER: [0-9]+ ('.' [0-9]+)?;
+INTEGER: [0-9]+;
 
-WS: (' ' | '\t' | '\n' | '\r')+ -> skip;
+FLOAT: [0-9]+ ('.' [0-9]+)?;
+
+EXPR: T PLUS EXPR | T MINUS EXPR | T;
+T: F MULT T | F DIV T | F;
+F: ABRE_P EXPR FECHA_P | FLOAT | ID;
+
+PLUS: '+';
+MINUS: '-';
+MULT: '*';
+DIV: '/';
+ABRE_P: '(';
+FECHA_P: ')';
+SEMICOLON: ';';
+COLON: ':';
+COMMA: ',';
+DOT: '.';
+
+WS: [ \t\r\n]+ -> skip;

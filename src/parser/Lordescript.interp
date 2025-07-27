@@ -1,7 +1,30 @@
 token literal names:
 null
-'Caro compilador,\n\n'
-'Assinado com distinção,\nLordescript'
+'Caro'
+'compilador'
+'Assinado'
+'com'
+'distinção'
+'Lordescript'
+null
+null
+null
+null
+null
+'será'
+null
+null
+null
+'hipótese'
+null
+null
+'contrário'
+'logo'
+null
+null
+null
+null
+'fracionário'
 null
 null
 null
@@ -11,39 +34,64 @@ null
 null
 null
 null
-null
-null
-null
-null
-null
-null
-null
-null
-null
+'+'
+'-'
+'*'
+'/'
+'('
+')'
+';'
+':'
+','
+'.'
 null
 
 token symbolic names:
 null
 null
 null
+null
+null
+null
+null
 BLOCK
 CMD
-IF
-ELIF
-ELSE
-WHILE
-DO_WHILE
-CMD_COMPARE
-COMPARE
 CMD_READ
 CMD_WRITE
 CMD_ASSIGN
+SERA
+CMD_LOGIC
+COMMENT
+IF
+HIPOTESE
+ELIF
+ELSE
+CONTRARIO
+LOGO
+WHILE
+DO_WHILE
+COMPARE
 TYPE
+FRACIONARIO
 ID
 VALUE
 STRING
 BOOL
-NUMBER
+INTEGER
+FLOAT
+EXPR
+T
+F
+PLUS
+MINUS
+MULT
+DIV
+ABRE_P
+FECHA_P
+SEMICOLON
+COLON
+COMMA
+DOT
 WS
 
 rule names:
@@ -51,4 +99,4 @@ prog
 
 
 atn:
-[4, 1, 21, 7, 2, 0, 7, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 5, 0, 2, 1, 0, 0, 0, 2, 3, 5, 1, 0, 0, 3, 4, 5, 3, 0, 0, 4, 5, 5, 2, 0, 0, 5, 1, 1, 0, 0, 0, 0]
+[4, 1, 45, 15, 2, 0, 7, 0, 1, 0, 1, 0, 1, 0, 1, 0, 3, 0, 7, 8, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 14, 0, 2, 1, 0, 0, 0, 2, 3, 5, 1, 0, 0, 3, 4, 5, 2, 0, 0, 4, 6, 5, 43, 0, 0, 5, 7, 5, 7, 0, 0, 6, 5, 1, 0, 0, 0, 6, 7, 1, 0, 0, 0, 7, 8, 1, 0, 0, 0, 8, 9, 5, 3, 0, 0, 9, 10, 5, 4, 0, 0, 10, 11, 5, 5, 0, 0, 11, 12, 5, 43, 0, 0, 12, 13, 5, 6, 0, 0, 13, 1, 1, 0, 0, 0, 1, 6]

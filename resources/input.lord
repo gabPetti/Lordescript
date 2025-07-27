@@ -1,13 +1,17 @@
 Caro compilador,
+/*
+Declaro que o inteiro num será agraciado com o valor 23 + (11 * 2 / 2);
 
-Declaro que o numérico num é agraciado com o valor 23 + (11 * 2 / 2);
 
-Se porventura num revelar-se como maior que 20, então:
+Se porventura num revelar-se como maior que 20, logo:
     Ordeno que mostre ao mundo o valor de num;
-Porém, se num revelar-se como menor que 20, então:
+Assim finaliza-se a hipótese.
+
+Porém, se num revelar-se como menor que 20, logo:
     Ordeno que mostre ao mundo o valor de num;
 Caso contrário:
     Ordeno que mostre ao mundo o valor de "num é 20 rapaziada";
+*/
 
 Assinado com distinção,
 Lordescript
