@@ -11,7 +11,7 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
-// import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 import codegen.Visitor;
@@ -28,11 +28,11 @@ public class MainClass {
             // Create token stream from the lexer
             CommonTokenStream tokenStream = new CommonTokenStream(lexer);
 
-            // tokenStream.fill();
-            // for (Token token : tokenStream.getTokens()) {
-            // System.out.println("Token: " + token.getText() + ", Type: " +
-            // token.getType());
-            // }
+            tokenStream.fill();
+            for (Token token : tokenStream.getTokens()) {
+            System.out.println("Token: " + token.getText() + ", Type: " +
+            token.getType());
+            }
 
             // Create parser from the token stream
             parser = new LordescriptParser(tokenStream);

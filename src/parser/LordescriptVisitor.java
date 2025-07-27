@@ -16,4 +16,76 @@ public interface LordescriptVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitProg(LordescriptParser.ProgContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LordescriptParser#block}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBlock(LordescriptParser.BlockContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LordescriptParser#cmd}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCmd(LordescriptParser.CmdContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LordescriptParser#cmdRead}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCmdRead(LordescriptParser.CmdReadContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LordescriptParser#cmdWrite}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCmdWrite(LordescriptParser.CmdWriteContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LordescriptParser#cmd_assign}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCmd_assign(LordescriptParser.Cmd_assignContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LordescriptParser#cmdLogic}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCmdLogic(LordescriptParser.CmdLogicContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LordescriptParser#if_stmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIf_stmt(LordescriptParser.If_stmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LordescriptParser#elif_stmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitElif_stmt(LordescriptParser.Elif_stmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LordescriptParser#else_stmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitElse_stmt(LordescriptParser.Else_stmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LordescriptParser#while}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWhile(LordescriptParser.WhileContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LordescriptParser#do_while}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDo_while(LordescriptParser.Do_whileContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LordescriptParser#type}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitType(LordescriptParser.TypeContext ctx);
 }
