@@ -27,7 +27,7 @@ WS: [ \t\r\n]+ -> skip;
 
 // parser rules
 prog:
-	'Caro' 'compilador' COMMA block? 'Assinado' 'com' 'distinção' COMMA 'Lordescript';
+	'Caro' 'compilador' COMMA block? 'Assinado' 'com' 'distinção' COMMA 'Lordescript' EOF;
 
 block: (cmd)+;
 
