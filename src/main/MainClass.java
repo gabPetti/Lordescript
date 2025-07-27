@@ -33,12 +33,9 @@ public class MainClass {
             parser = new LordescriptParser(tokenStream);
 
             ParseTree tree = parser.prog(); // Entry rule
-            System.out.println(tree.toStringTree(parser));
             Trees.inspect(tree, parser); // open the GUI tree viewer
             Visitor visitor = new Visitor();
             String output = visitor.visit(tree);
-
-            System.out.println(output);
         } catch (Exception e) {
             System.err.println("ERROR: " + e.getMessage());
         }
