@@ -17,7 +17,7 @@ SEMICOLON: ';';
 COLON: ':';
 COMMA: ',';
 DOT: '.';
-STRING: '"' (~["\\\r\n] | '\\' .)* '"';
+STRING: '"' (~["\\\r\n] | '\\' . | [áéíóúãõâêôç])* '"';
 BOOL: 'digno' | 'indigno';
 FLOAT: [0-9]+ '.' [0-9]+;
 INTEGER: [0-9]+;
@@ -34,28 +34,34 @@ block: (cmd)+;
 cmd: cmdRead | cmdLogic | cmdWrite | cmd_assign | if_stmt;
 
 cmdRead:
-	'Ordeno' 'que' 'mostre' 'ao' 'mundo' 'o' 'valor de' ID SEMICOLON;
+	'Ordeno' 'que' 'mostre' 'ao' 'mundo' 'o' 'valor de' (ID | STRING) SEMICOLON;
 
 cmdWrite:
-	'Escrevo' 'humildemente' 'o' 'valor' 'de' ID SEMICOLON;
+	'Escrevo' 'humildemente' 'o' 'valor' 'de' (ID | STRING) SEMICOLON;
 
+/*
 cmd_assign:
 	'Declaro' 'que' 'o' type ID SERA 'agraciado' 'com' 'o' 'valor' value SEMICOLON;
+*/
+cmd_assign:
+    'Declaro' 'que' 'o' type ID SERA 'agraciado' 'com' 'o' 'valor' expr SEMICOLON;
 SERA: 'será';
 
-cmdLogic: (ID | value) COMPARE (ID | value);
+//cmdLogic: (ID | value) COMPARE (ID | value);
+cmdLogic: (ID | expr) COMPARE (ID | expr);
 
 COMMENT: '/*' .*? '*/' -> skip;
 
-// if statement
+// if else statement
 if_stmt:
-	'Se' 'porventura' cmdLogic COMMA 'logo' COLON block (
-		elif_stmt
-	)* (else_stmt)? 'Assim' 'finaliza-se' 'a' HIPOTESE DOT;
+    'Se' 'porventura' cmdLogic 'logo' COLON block
+    (elif_stmt)* (else_stmt)?
+    (else_stmt)?
+    'Assim' 'finaliza-se' 'a' HIPOTESE DOT;
 HIPOTESE: 'hipótese';
 
 elif_stmt:
-	'Contudo' COMMA 'se' cmdLogic COMMA 'logo' COLON block;
+    'Porém' 'se' cmdLogic 'logo' COLON block;
 
 else_stmt: 'Caso' CONTRARIO COLON block;
 CONTRARIO: 'contrário';
@@ -77,8 +83,10 @@ type: DUAL | PERGAMINHO | INTEIRO | FRACIONARIO | CAPITULAR;
 value: expr | STRING | BOOL | FLOAT | INTEGER;
 
 expr: expr_mult PLUS expr | expr_mult MINUS expr | expr_mult;
+
 expr_mult:
 	expr_sum MULT expr_mult
 	| expr_sum DIV expr_mult
 	| expr_sum;
-expr_sum: ABRE_P expr FECHA_P | FLOAT | ID;
+expr_sum: ABRE_P expr FECHA_P | FLOAT | INTEGER | ID;
+

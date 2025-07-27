@@ -8,7 +8,7 @@ código seja um testemunho da minha grandeza e do meu poder de programação.
 
 ## Features
 
-- Estrutura condicionais If e Else
-- 4 tipos de variáveis: Pergaminho, Inteiro, Fracional e Dual
-- Laço de repetição While e Do while
-- input e output pelo terminal
+- Estrutura condicionais 'If' e 'Else'
+- Quatro tipos de variáveis: 'Pergaminho' (string), 'Inteiro' (int), 'Fracional' (float) e 'Dual' (boolean)
+- Laço de repetição 'While' e 'Do while'
+- Input e output pelo terminal
