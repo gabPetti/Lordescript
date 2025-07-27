@@ -1,5 +1,31 @@
 grammar Lordescript;
 
+// tokens
+DUAL: 'dual';
+PERGAMINHO: 'pergaminho';
+INTEIRO: 'inteiro';
+FRACIONARIO: 'fracionário';
+CAPITULAR: 'capitular';
+ID: [a-zA-Z_][a-zA-Z0-9_]*;
+PLUS: '+';
+MINUS: '-';
+MULT: '*';
+DIV: '/';
+ABRE_P: '(';
+FECHA_P: ')';
+SEMICOLON: ';';
+COLON: ':';
+COMMA: ',';
+DOT: '.';
+STRING: '"' (~["\\\r\n] | '\\' .)* '"';
+BOOL: 'digno' | 'indigno';
+FLOAT: [0-9]+ '.' [0-9]+;
+INTEGER: [0-9]+;
+
+// nullable tokens
+WS: [ \t\r\n]+ -> skip;
+
+// parser rules
 prog:
 	'Caro' 'compilador' COMMA block? 'Assinado' 'com' 'distinção' COMMA 'Lordescript';
 
@@ -10,13 +36,14 @@ cmd: cmdRead | cmdLogic | cmdWrite | cmd_assign | if_stmt;
 cmdRead:
 	'Ordeno' 'que' 'mostre' 'ao' 'mundo' 'o' 'valor de' ID SEMICOLON;
 
-cmdWrite: ESCREVO ID SEMICOLON;
-ESCREVO: 'Escrevo' 'humildemente' 'o' 'valor' 'de';
+cmdWrite:
+	'Escrevo' 'humildemente' 'o' 'valor' 'de' ID SEMICOLON;
+
 cmd_assign:
-	'Declaro' 'que' 'o' type ID SERA 'agraciado' 'com' 'o' 'valor' VALUE SEMICOLON;
+	'Declaro' 'que' 'o' type ID SERA 'agraciado' 'com' 'o' 'valor' value SEMICOLON;
 SERA: 'será';
 
-cmdLogic: (ID | VALUE) COMPARE (ID | VALUE);
+cmdLogic: (ID | value) COMPARE (ID | value);
 
 COMMENT: '/*' .*? '*/' -> skip;
 
@@ -33,8 +60,6 @@ elif_stmt:
 else_stmt: 'Caso' CONTRARIO COLON block;
 CONTRARIO: 'contrário';
 
-LOGO: 'logo';
-
 // while statement
 while:
 	'Enquanto' cmdLogic ', logo:' block 'e repita até que a condição não seja mais verdadeira;';
@@ -48,37 +73,12 @@ COMPARE:
 	| 'revelar-se como igual a';
 
 type: DUAL | PERGAMINHO | INTEIRO | FRACIONARIO | CAPITULAR;
-DUAL: 'dual';
-PERGAMINHO: 'pergaminho';
-INTEIRO: 'inteiro';
-FRACIONARIO: 'fracionário';
-CAPITULAR: 'capitular';
 
-ID: [a-zA-Z_][a-zA-Z0-9_]*;
+value: expr | STRING | BOOL | FLOAT | INTEGER;
 
-VALUE: EXPR | STRING | BOOL | FLOAT | INTEGER;
-
-STRING: '"' (~["\r\n])* '"';
-
-BOOL: 'digno' | 'indigno';
-
-INTEGER: [0-9]+;
-
-FLOAT: [0-9]+ ('.' [0-9]+)?;
-
-EXPR: T PLUS EXPR | T MINUS EXPR | T;
-T: F MULT T | F DIV T | F;
-F: ABRE_P EXPR FECHA_P | FLOAT | ID;
-
-PLUS: '+';
-MINUS: '-';
-MULT: '*';
-DIV: '/';
-ABRE_P: '(';
-FECHA_P: ')';
-SEMICOLON: ';';
-COLON: ':';
-COMMA: ',';
-DOT: '.';
-
-WS: [ \t\r\n]+ -> skip;
+expr: expr_mult PLUS expr | expr_mult MINUS expr | expr_mult;
+expr_mult:
+	expr_sum MULT expr_mult
+	| expr_sum DIV expr_mult
+	| expr_sum;
+expr_sum: ABRE_P expr FECHA_P | FLOAT | ID;
