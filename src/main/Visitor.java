@@ -1,4 +1,4 @@
-package codegen;
+package main;
 
 import parser.LordescriptBaseVisitor;
 import parser.LordescriptParser;

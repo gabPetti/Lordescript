@@ -1,5 +1,4 @@
-// Generated from Lordescript.g4 by ANTLR 4.13.2
-package parser;
+// Generated from /home/gabpetti/repos/Lordescript/Lordescript.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -137,44 +136,4 @@ public interface LordescriptListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitType(LordescriptParser.TypeContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LordescriptParser#value}.
-	 * @param ctx the parse tree
-	 */
-	void enterValue(LordescriptParser.ValueContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LordescriptParser#value}.
-	 * @param ctx the parse tree
-	 */
-	void exitValue(LordescriptParser.ValueContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LordescriptParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr(LordescriptParser.ExprContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LordescriptParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr(LordescriptParser.ExprContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LordescriptParser#expr_mult}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr_mult(LordescriptParser.Expr_multContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LordescriptParser#expr_mult}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr_mult(LordescriptParser.Expr_multContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LordescriptParser#expr_sum}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr_sum(LordescriptParser.Expr_sumContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LordescriptParser#expr_sum}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr_sum(LordescriptParser.Expr_sumContext ctx);
 }

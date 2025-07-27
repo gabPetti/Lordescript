@@ -88,4 +88,28 @@ public interface LordescriptVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitType(LordescriptParser.TypeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LordescriptParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitValue(LordescriptParser.ValueContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LordescriptParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr(LordescriptParser.ExprContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LordescriptParser#expr_mult}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr_mult(LordescriptParser.Expr_multContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LordescriptParser#expr_sum}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr_sum(LordescriptParser.Expr_sumContext ctx);
 }
