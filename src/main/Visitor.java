@@ -2,6 +2,8 @@ package main;
 
 import parser.LordescriptBaseVisitor;
 import parser.LordescriptParser;
+import org.antlr.v4.runtime.tree.TerminalNode;
+import java.util.List;
 
 public class Visitor extends LordescriptBaseVisitor<String> {
     @Override
@@ -12,7 +14,9 @@ public class Visitor extends LordescriptBaseVisitor<String> {
             sb.append("public class Main {\n");
             sb.append("\tpublic static void main(String[] args) {\n");
             if (ctx.block() != null) {
-                sb.append(ctx.block().accept(this));
+                for (LordescriptParser.CmdContext cmd : ctx.block().cmd()) {
+                    sb.append(visit(cmd));
+                }
             }
             sb.append("\t}\n");
             sb.append("}");
@@ -22,5 +26,136 @@ public class Visitor extends LordescriptBaseVisitor<String> {
             System.err.println("ERROR: " + e.getMessage());
             return "Error in visiting the program.";
         }
+    }
+
+    @Override
+    public String visitCmd_assign(LordescriptParser.Cmd_assignContext ctx) {
+        String javaType;
+        switch(ctx.type().getText()) {
+            case "inteiro":
+                javaType = "int";
+                break;
+            case "fracionário":
+                javaType = "double";
+                break;
+            case "pergaminho":
+                javaType = "String";
+                break;
+            case "dual":
+                javaType = "boolean";
+                break;
+            case "capitular":
+                javaType = "char";
+                break;
+            default:
+                javaType = ctx.type().getText(); // fallback
+        }
+        
+        return "\t\t" + javaType + " " + ctx.ID().getText() + 
+            " = " + visit(ctx.expr()) + ";\n";
+    }
+
+    @Override
+    public String visitCmdRead(LordescriptParser.CmdReadContext ctx) {
+        String value = ctx.ID() != null ? ctx.ID().getText() : ctx.STRING().getText();
+        return "\t\tSystem.out.println(" + value + ");\n";
+    }
+
+    @Override
+    public String visitCmdLogic(LordescriptParser.CmdLogicContext ctx) {
+        String left = ctx.ID().size() > 0 ? ctx.ID(0).getText() : visit(ctx.expr(0));
+        
+        String right;
+        if (ctx.ID().size() > 1) {
+            right = ctx.ID(1).getText();
+        } 
+        else if (ctx.expr().size() > 1) {
+            right = visit(ctx.expr(1));
+        }
+        else if (ctx.expr().size() == 1 && ctx.ID().size() == 1) {
+            right = visit(ctx.expr(0));
+        }
+        else {
+            throw new RuntimeException("Erro de sintaxe: Não foi possível determinar o lado direito da comparação");
+        }
+        
+        return left + " " + translateComparison(ctx.COMPARE().getText()) + " " + right;
+    }
+
+    private String translateComparison(String op) {
+        switch(op) {
+            case "revelar-se como símile a": return "==";
+            case "revelar-se como menor que": return "<";
+            case "revelar-se como maior que": return ">";
+            case "revelar-se como díspar a": return "!=";
+            case "revelar-se como menor ou igual que": return "<=";
+            case "revelar-se como maior ou igual que": return ">=";
+            default: return op;
+        }
+    }
+
+    @Override
+    public String visitIf_stmt(LordescriptParser.If_stmtContext ctx) {
+        StringBuilder sb = new StringBuilder();
+        
+        // Condição if principal
+        sb.append("\t\tif (").append(visit(ctx.cmdLogic())).append(") {\n")
+        .append(visit(ctx.block()))
+        .append("\t\t}");
+
+        // Condições elif (Porém se)
+        if (ctx.elif_stmt() != null) {
+            for (LordescriptParser.Elif_stmtContext elif : ctx.elif_stmt()) {
+                sb.append(" else if (").append(visit(elif.cmdLogic())).append(") {\n")
+                .append(visit(elif.block()))
+                .append("\t\t}");
+            }
+        }
+
+        // Condição else (Caso contrário)
+        if (ctx.else_stmt() != null && !ctx.else_stmt().isEmpty()) {
+            sb.append(" else {\n")
+            .append(visit(ctx.else_stmt(0).block()))
+            .append("\t\t}");
+        }
+
+        sb.append("\n");
+        return sb.toString();
+    }
+
+    @Override
+    public String visitExpr(LordescriptParser.ExprContext ctx) {
+        if (ctx.expr() != null) {
+            String left = visit(ctx.expr_mult());
+            String right = visit(ctx.expr());
+            String op = ctx.PLUS() != null ? " + " : " - ";
+            return left + op + right;
+        }
+        return visit(ctx.expr_mult());
+    }
+
+    @Override
+    public String visitExpr_mult(LordescriptParser.Expr_multContext ctx) {
+        if (ctx.expr_mult() != null) {
+            String left = visit(ctx.expr_sum());
+            String right = visit(ctx.expr_mult());
+            String op = ctx.MULT() != null ? " * " : " / ";
+            return left + op + right;
+        }
+        return visit(ctx.expr_sum());
+    }
+
+    @Override
+    public String visitExpr_sum(LordescriptParser.Expr_sumContext ctx) {
+        if (ctx.FLOAT() != null) {
+            return ctx.FLOAT().getText();
+        } else if (ctx.INTEGER() != null) {
+            return ctx.INTEGER().getText();
+        } else if (ctx.ID() != null) {
+            return ctx.ID().getText();
+        } else if (ctx.ABRE_P() != null) {
+            return "(" + visit(ctx.expr()) + ")";
+        }
+        return visit(ctx.expr());
     }
 }

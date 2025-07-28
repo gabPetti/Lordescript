@@ -39,15 +39,10 @@ cmdRead:
 cmdWrite:
 	'Escrevo' 'humildemente' 'o' 'valor' 'de' (ID | STRING) SEMICOLON;
 
-/*
-cmd_assign:
-	'Declaro' 'que' 'o' type ID SERA 'agraciado' 'com' 'o' 'valor' value SEMICOLON;
-*/
 cmd_assign:
     'Declaro' 'que' 'o' type ID SERA 'agraciado' 'com' 'o' 'valor' expr SEMICOLON;
 SERA: 'será';
 
-//cmdLogic: (ID | value) COMPARE (ID | value);
 cmdLogic: (ID | expr) COMPARE (ID | expr);
 
 COMMENT: '/*' .*? '*/' -> skip;
@@ -76,11 +71,12 @@ do_while:
 COMPARE:
 	'revelar-se como maior que'
 	| 'revelar-se como menor que'
-	| 'revelar-se como igual a';
+	| 'revelar-se como símile a' 
+	| 'revelar-se como maior ou igual que'
+	| 'revelar-se como menor ou igual que'
+	| 'revelar-se como díspar a';
 
 type: DUAL | PERGAMINHO | INTEIRO | FRACIONARIO | CAPITULAR;
-
-value: expr | STRING | BOOL | FLOAT | INTEGER;
 
 expr: expr_mult PLUS expr | expr_mult MINUS expr | expr_mult;
 
