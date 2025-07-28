@@ -37,7 +37,7 @@ cmdRead:
 	'Ordeno' 'que' 'mostre' 'ao' 'mundo' 'o' 'valor de' (ID | STRING) SEMICOLON;
 
 cmdWrite:
-	'Escrevo' 'humildemente' 'o' 'valor' 'de' (ID | STRING) SEMICOLON;
+	'Redijo' 'humildemente' 'o' 'valor de' type ID SEMICOLON;
 
 cmd_assign:
     'Declaro' 'que' 'o' type ID SERA 'agraciado' 'com' 'o' 'valor' expr SEMICOLON;

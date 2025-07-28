@@ -138,16 +138,6 @@ public interface LordescriptListener extends ParseTreeListener {
 	 */
 	void exitType(LordescriptParser.TypeContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LordescriptParser#value}.
-	 * @param ctx the parse tree
-	 */
-	void enterValue(LordescriptParser.ValueContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LordescriptParser#value}.
-	 * @param ctx the parse tree
-	 */
-	void exitValue(LordescriptParser.ValueContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link LordescriptParser#expr}.
 	 * @param ctx the parse tree
 	 */

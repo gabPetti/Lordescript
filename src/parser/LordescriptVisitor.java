@@ -89,12 +89,6 @@ public interface LordescriptVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitType(LordescriptParser.TypeContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LordescriptParser#value}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitValue(LordescriptParser.ValueContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link LordescriptParser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

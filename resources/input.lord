@@ -1,16 +1,18 @@
 Caro compilador,
 
 Declaro que o fracionário num1 será agraciado com o valor 20.2;
-Declaro que o fracionário Num2muN será agraciado com o valor 0.8+num1;
+Redijo humildemente o valor de fracionário num2;
 
-Se porventura Num2muN revelar-se como maior que 20 logo:
+/* Declaro que o fracionário num2 será agraciado com o valor 10.5; */
+
+Se porventura num1 revelar-se como maior que 20 logo:
     Ordeno que mostre ao mundo o valor de "é maior";
-Porém se Num2muN revelar-se como menor que 20 logo:
+Porém se num1 revelar-se como menor que 20 logo:
     Ordeno que mostre ao mundo o valor de "é menor";
-Porém se Num2muN revelar-se como díspar a 20 logo:
-    Ordeno que mostre ao mundo o valor de Num2muN;
+Porém se num1 revelar-se como díspar a 20 logo:
+    Ordeno que mostre ao mundo o valor de num1;
 Caso contrário:
-    Ordeno que mostre ao mundo o valor de "num é 20 rapaziada";
+    Ordeno que mostre ao mundo o valor de "num1 é 20 rapaziada";
 Assim finaliza-se a hipótese.
 
 Assinado com distinção,

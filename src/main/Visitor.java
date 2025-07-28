@@ -4,6 +4,9 @@ import parser.LordescriptBaseVisitor;
 import parser.LordescriptParser;
 import org.antlr.v4.runtime.tree.TerminalNode;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class Visitor extends LordescriptBaseVisitor<String> {
     @Override
@@ -11,8 +14,14 @@ public class Visitor extends LordescriptBaseVisitor<String> {
         try {
             StringBuilder sb = new StringBuilder();
 
+            sb.append("import java.util.Scanner;\n\n");
+
             sb.append("public class Main {\n");
             sb.append("\tpublic static void main(String[] args) {\n");
+
+            sb.append("\t\tScanner scan = new Scanner(System.in);\n");
+
+
             if (ctx.block() != null) {
                 for (LordescriptParser.CmdContext cmd : ctx.block().cmd()) {
                     sb.append(visit(cmd));
@@ -24,41 +33,62 @@ public class Visitor extends LordescriptBaseVisitor<String> {
             return sb.toString();
         } catch (Exception e) {
             System.err.println("ERROR: " + e.getMessage());
-            return "Error in visiting the program.";
+            return "Um infortúnio assolou a transmutação do vosso sacro scriptum";
+        }
+    }
+
+    private final Map<String, String> symbolTable = new HashMap<>();
+
+    private String translateType(String type) {
+        switch(type) {
+            case "inteiro": return "int";
+            case "fracionário": return "double";
+            default: throw new RuntimeException("Este plebeu tipo '" + type + "' não tem lugar em nosso reino de variáveis nobres");
         }
     }
 
     @Override
     public String visitCmd_assign(LordescriptParser.Cmd_assignContext ctx) {
-        String javaType;
-        switch(ctx.type().getText()) {
-            case "inteiro":
-                javaType = "int";
-                break;
-            case "fracionário":
-                javaType = "double";
-                break;
-            case "pergaminho":
-                javaType = "String";
-                break;
-            case "dual":
-                javaType = "boolean";
-                break;
-            case "capitular":
-                javaType = "char";
-                break;
-            default:
-                javaType = ctx.type().getText(); // fallback
+        String varName = ctx.ID().getText();
+
+        if (symbolTable.containsKey(varName)) {
+            throw new RuntimeException("Atesto perante a corte que o ilustre nome '" + varName + "' já foi consagrado nos anais deste reino");
         }
         
-        return "\t\t" + javaType + " " + ctx.ID().getText() + 
-            " = " + visit(ctx.expr()) + ";\n";
+        String javaType = translateType(ctx.type().getText());
+        
+        symbolTable.put(varName, javaType);
+        return "\t\t" + javaType + " " + varName + " = " + visit(ctx.expr()) + ";\n";
     }
+    
+    @Override
+    public String visitCmdWrite(LordescriptParser.CmdWriteContext ctx) {
+        String varName = ctx.ID().getText();
+        String javaType = translateType(ctx.type().getText());
+        
+        symbolTable.put(varName, javaType);
+        
+        String javaTypeCapitalized = javaType.substring(0,1).toUpperCase() + javaType.substring(1);
+        return "\t\t" + javaType + " " + varName + " = scan.next" + javaTypeCapitalized + "();\n";
+    }
+
 
     @Override
     public String visitCmdRead(LordescriptParser.CmdReadContext ctx) {
         String value = ctx.ID() != null ? ctx.ID().getText() : ctx.STRING().getText();
         return "\t\tSystem.out.println(" + value + ");\n";
+    }
+
+    private String translateComparison(String op) {
+        switch(op) {
+            case "revelar-se como símile a": return "==";
+            case "revelar-se como menor que": return "<";
+            case "revelar-se como maior que": return ">";
+            case "revelar-se como díspar a": return "!=";
+            case "revelar-se como menor ou igual que": return "<=";
+            case "revelar-se como maior ou igual que": return ">=";
+            default: return op;
+        }
     }
 
     @Override
@@ -76,22 +106,10 @@ public class Visitor extends LordescriptBaseVisitor<String> {
             right = visit(ctx.expr(0));
         }
         else {
-            throw new RuntimeException("Erro de sintaxe: Não foi possível determinar o lado direito da comparação");
+            throw new RuntimeException("Por ordem real: a mão direita da comparação não se fez presente perante o tribunal sintático");
         }
         
         return left + " " + translateComparison(ctx.COMPARE().getText()) + " " + right;
-    }
-
-    private String translateComparison(String op) {
-        switch(op) {
-            case "revelar-se como símile a": return "==";
-            case "revelar-se como menor que": return "<";
-            case "revelar-se como maior que": return ">";
-            case "revelar-se como díspar a": return "!=";
-            case "revelar-se como menor ou igual que": return "<=";
-            case "revelar-se como maior ou igual que": return ">=";
-            default: return op;
-        }
     }
 
     @Override
