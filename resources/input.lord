@@ -1,14 +1,33 @@
 Caro compilador,
 
-Declaro que o inteiro num será agraciado com o valor 23 + (11 * 2 / 2);
+Declaro que o fracionário num1 será agraciado com o valor 20.2;
+Redijo humildemente o valor de fracionário num2;
 
-Se porventura num revelar-se como maior que 20 logo:
-    Ordeno que mostre ao mundo o valor de num;
-Porém se num revelar-se como menor que 20 logo:
-    Ordeno que mostre ao mundo o valor de num;
+Se porventura num1 revelar-se como maior que 20 logo:
+    Ordeno que mostre ao mundo o valor de "é maior";
+Porém se num1 revelar-se como menor que 20 logo:
+    Ordeno que mostre ao mundo o valor de "é menor";
+Porém se num1 revelar-se como díspar a 20 logo:
+    Ordeno que mostre ao mundo o valor de num1;
 Caso contrário:
-    Ordeno que mostre ao mundo o valor de "num é 20 rapaziada";
+    Ordeno que mostre ao mundo o valor de "num1 é 20 rapaziada";
 Assim finaliza-se a hipótese.
+
+Ordeno que mostre ao mundo o valor de "whiles e do whiles";
+
+Declaro que o fracionário num3 será agraciado com o valor 8;
+
+Enquanto a razão permitir que num3 revelar-se como menor que 10, que se cumpra:
+    Declaro que o num3 será agraciado com o valor num3 + 1;
+    Ordeno que mostre ao mundo o valor de "tristeza";
+Até que o sacro scriptum demonstre sua invalidez.
+
+Redijo humildemente o valor de fracionário num4;
+Que se execute com esmero:
+    Ordeno que mostre ao mundo o valor de "o quadrado é";
+    Declaro que o fracionário num4 será agraciado com o valor num4 * num4;
+    Ordeno que mostre ao mundo o valor de num4;
+Enquanto o método assim o exigir e num4 revelar-se como menor que 20.
 
 Assinado com distinção,
 Lordescript

@@ -71,29 +71,23 @@ public interface LordescriptVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitElse_stmt(LordescriptParser.Else_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LordescriptParser#while}.
+	 * Visit a parse tree produced by {@link LordescriptParser#while_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitWhile(LordescriptParser.WhileContext ctx);
+	T visitWhile_stmt(LordescriptParser.While_stmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LordescriptParser#do_while}.
+	 * Visit a parse tree produced by {@link LordescriptParser#do_while_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDo_while(LordescriptParser.Do_whileContext ctx);
+	T visitDo_while_stmt(LordescriptParser.Do_while_stmtContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LordescriptParser#type}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitType(LordescriptParser.TypeContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link LordescriptParser#value}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitValue(LordescriptParser.ValueContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LordescriptParser#expr}.
 	 * @param ctx the parse tree
