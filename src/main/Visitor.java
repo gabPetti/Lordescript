@@ -15,12 +15,9 @@ public class Visitor extends LordescriptBaseVisitor<String> {
             StringBuilder sb = new StringBuilder();
 
             sb.append("import java.util.Scanner;\n\n");
-
             sb.append("public class Main {\n");
             sb.append("\tpublic static void main(String[] args) {\n");
-
             sb.append("\t\tScanner scan = new Scanner(System.in);\n");
-
 
             if (ctx.block() != null) {
                 for (LordescriptParser.CmdContext cmd : ctx.block().cmd()) {
@@ -52,7 +49,8 @@ public class Visitor extends LordescriptBaseVisitor<String> {
         String varName = ctx.ID().getText();
 
         if (symbolTable.containsKey(varName)) {
-            throw new RuntimeException("Atesto perante a corte que o ilustre nome '" + varName + "' já foi consagrado nos anais deste reino");
+            return "\t\t" + varName + " = " + visit(ctx.expr()) + ";\n";
+            // throw new RuntimeException("Atesto perante a corte que o ilustre nome '" + varName + "' já foi consagrado nos anais deste reino");
         }
         
         String javaType = translateType(ctx.type().getText());
@@ -138,6 +136,32 @@ public class Visitor extends LordescriptBaseVisitor<String> {
         }
 
         sb.append("\n");
+        return sb.toString();
+    }
+
+    @Override
+    public String visitWhile_stmt(LordescriptParser.While_stmtContext ctx) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\t\twhile (").append(visit(ctx.cmdLogic())).append(") {\n");
+        
+        for (LordescriptParser.CmdContext cmd : ctx.block().cmd()) {
+            sb.append(visit(cmd));
+        }
+        
+        sb.append("\t\t}\n");
+        return sb.toString();
+    }
+
+    @Override
+    public String visitDo_while_stmt(LordescriptParser.Do_while_stmtContext ctx) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\t\tdo {\n");
+        
+        for (LordescriptParser.CmdContext cmd : ctx.block().cmd()) {
+            sb.append(visit(cmd));
+        }
+        
+        sb.append("\t\t} while (").append(visit(ctx.cmdLogic())).append(");\n");
         return sb.toString();
     }
 

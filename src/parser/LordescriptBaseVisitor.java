@@ -88,14 +88,14 @@ public class LordescriptBaseVisitor<T> extends AbstractParseTreeVisitor<T> imple
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitWhile(LordescriptParser.WhileContext ctx) { return visitChildren(ctx); }
+	@Override public T visitWhile_stmt(LordescriptParser.While_stmtContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDo_while(LordescriptParser.Do_whileContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDo_while_stmt(LordescriptParser.Do_while_stmtContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

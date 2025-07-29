@@ -137,25 +137,25 @@ public class LordescriptBaseListener implements LordescriptListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWhile(LordescriptParser.WhileContext ctx) { }
+	@Override public void enterWhile_stmt(LordescriptParser.While_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitWhile(LordescriptParser.WhileContext ctx) { }
+	@Override public void exitWhile_stmt(LordescriptParser.While_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDo_while(LordescriptParser.Do_whileContext ctx) { }
+	@Override public void enterDo_while_stmt(LordescriptParser.Do_while_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDo_while(LordescriptParser.Do_whileContext ctx) { }
+	@Override public void exitDo_while_stmt(LordescriptParser.Do_while_stmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

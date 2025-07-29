@@ -108,25 +108,25 @@ public interface LordescriptListener extends ParseTreeListener {
 	 */
 	void exitElse_stmt(LordescriptParser.Else_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LordescriptParser#while}.
+	 * Enter a parse tree produced by {@link LordescriptParser#while_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterWhile(LordescriptParser.WhileContext ctx);
+	void enterWhile_stmt(LordescriptParser.While_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LordescriptParser#while}.
+	 * Exit a parse tree produced by {@link LordescriptParser#while_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitWhile(LordescriptParser.WhileContext ctx);
+	void exitWhile_stmt(LordescriptParser.While_stmtContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LordescriptParser#do_while}.
+	 * Enter a parse tree produced by {@link LordescriptParser#do_while_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterDo_while(LordescriptParser.Do_whileContext ctx);
+	void enterDo_while_stmt(LordescriptParser.Do_while_stmtContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LordescriptParser#do_while}.
+	 * Exit a parse tree produced by {@link LordescriptParser#do_while_stmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitDo_while(LordescriptParser.Do_whileContext ctx);
+	void exitDo_while_stmt(LordescriptParser.Do_while_stmtContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LordescriptParser#type}.
 	 * @param ctx the parse tree

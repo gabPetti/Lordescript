@@ -31,7 +31,7 @@ prog:
 
 block: (cmd)+;
 
-cmd: cmdRead | cmdLogic | cmdWrite | cmd_assign | if_stmt;
+cmd: cmdRead | cmdLogic | cmdWrite | cmd_assign | if_stmt | while_stmt | do_while_stmt;
 
 cmdRead:
 	'Ordeno' 'que' 'mostre' 'ao' 'mundo' 'o' 'valor de' (ID | STRING) SEMICOLON;
@@ -40,7 +40,7 @@ cmdWrite:
 	'Redijo' 'humildemente' 'o' 'valor de' type ID SEMICOLON;
 
 cmd_assign:
-    'Declaro' 'que' 'o' type ID SERA 'agraciado' 'com' 'o' 'valor' expr SEMICOLON;
+    'Declaro' 'que' 'o' type? ID SERA 'agraciado' 'com' 'o' 'valor' expr SEMICOLON;
 SERA: 'será';
 
 cmdLogic: (ID | expr) COMPARE (ID | expr);
@@ -62,11 +62,13 @@ else_stmt: 'Caso' CONTRARIO COLON block;
 CONTRARIO: 'contrário';
 
 // while statement
-while:
-	'Enquanto' cmdLogic ', logo:' block 'e repita até que a condição não seja mais verdadeira;';
+while_stmt:
+	'Enquanto' 'a' 'razão' 'permitir' 'que' cmdLogic ', ' 'que' 'se' 'cumpra' COLON block
+    'Até' 'que' 'o' 'sacro' 'scriptum' 'demonstre' 'sua' 'invalidez' DOT;
 
-do_while:
-	'Seria conveniente que as seguintes medidas sejam tomadas:' block 'Enquanto ' cmdLogic;
+do_while_stmt:
+	'Que' 'se' 'execute' 'com' 'esmero' COLON block
+	'Enquanto' 'o' 'método' 'assim' 'o' 'exigir' 'e' cmdLogic DOT;
 
 COMPARE:
 	'revelar-se como maior que'

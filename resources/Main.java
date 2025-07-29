@@ -14,5 +14,17 @@ public class Main {
 		} else {
 		System.out.println("num1 é 20 rapaziada");
 		}
+		System.out.println("whiles e do whiles");
+		double num3 = 8;
+		while (num3 < 10) {
+		num3 = num3 + 1;
+		System.out.println("tristeza");
+		}
+		double num4 = scan.nextDouble();
+		do {
+		System.out.println("o quadrado é");
+		num4 = num4 * num4;
+		System.out.println(num4);
+		} while (num4 < 20);
 	}
 }
