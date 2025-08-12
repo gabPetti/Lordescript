@@ -1,10 +1,12 @@
 # Lordescript
 
 Eu sou um Lorde, e como tal, tenho o direito de escrever um programa que seja digno
-do meu título. Este programa é escrito em Lordescript, uma linguagem de programação
-que reflete a minha elegância e fidalguia. Comandos são executados com a precisão de
-um corte de espada, e variáveis são tratadas com o respeito que merecem. Que este
-código seja um testemunho da minha grandeza e do meu poder de programação.
+do meu título. Este repositório descreve o Lordescript, uma linguagem de programação
+de alto nível, destinada à pessoas de alto nível, refletindo a elegância e fidalguia
+de quem a usa. Comandos são executados em de forma lenta, pois cavalheiros devem ser
+pacientes. Essa linguagem é respeitosamente tipada, as variáveis são tratadas com o 
+respeito que merecem. Que esta linguagem seja um testemunho de grandeza e de 
+superioridade computacional.
 
 ## Features
 
