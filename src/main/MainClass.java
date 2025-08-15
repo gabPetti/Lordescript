@@ -32,22 +32,20 @@ public class MainClass {
             System.err.println("ERROR: " + e.getMessage());
         }
     }
-    
+
     private static String formatTree(ParseTree tree, LordescriptParser parser) {
         String rawTree = tree.toStringTree(parser);
         StringBuilder formatted = new StringBuilder();
         int indent = 0;
-        
+
         for (char c : rawTree.toCharArray()) {
             if (c == '(') {
                 formatted.append("\n").append("  ".repeat(indent)).append("(");
                 indent++;
-            } 
-            else if (c == ')') {
+            } else if (c == ')') {
                 indent--;
                 formatted.append(")");
-            } 
-            else {
+            } else {
                 formatted.append(c);
             }
         }
@@ -74,9 +72,9 @@ public class MainClass {
             parser = new LordescriptParser(tokenStream);
             ParseTree tree = parser.prog(); // Entry rule
 
-            // Trees.inspect(tree, parser); // open the GUI tree viewer
+            Trees.inspect(tree, parser); // open the GUI tree viewer
 
-            System.out.println(formatTree(tree, parser)); // outputs tree in console
+            // System.out.println(formatTree(tree, parser)); // outputs tree in console
 
             // Transpile the parse tree to Java code
             String output = new Visitor().visit(tree);
