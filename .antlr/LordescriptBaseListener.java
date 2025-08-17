@@ -1,5 +1,4 @@
-// Generated from Lordescript.g4 by ANTLR 4.13.2
-package parser;
+// Generated from /home/gabpetti/repos/Lordescript/Lordescript.g4 by ANTLR 4.13.1
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -77,25 +76,13 @@ public class LordescriptBaseListener implements LordescriptListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCmdDeclare(LordescriptParser.CmdDeclareContext ctx) { }
+	@Override public void enterCmd_assign(LordescriptParser.Cmd_assignContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCmdDeclare(LordescriptParser.CmdDeclareContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCmdAssign(LordescriptParser.CmdAssignContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCmdAssign(LordescriptParser.CmdAssignContext ctx) { }
+	@Override public void exitCmd_assign(LordescriptParser.Cmd_assignContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

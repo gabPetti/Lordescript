@@ -31,17 +31,33 @@ prog:
 
 block: (cmd)+;
 
-cmd: cmdRead | cmdLogic | cmdWrite | cmd_assign | if_stmt | while_stmt | do_while_stmt;
+cmd:
+	cmdRead
+	| cmdLogic
+	| cmdWrite
+	| cmdAssign
+	| cmdDeclare
+	| if_stmt
+	| while_stmt
+	| do_while_stmt;
 
 cmdRead:
-	'Ordeno' 'que' 'mostre' 'ao' 'mundo' 'o' 'valor de' (ID | STRING) SEMICOLON;
+	'Ordeno' 'que' 'mostre' 'ao' 'mundo' 'o' 'valor de' (
+		ID
+		| STRING
+	) SEMICOLON;
 
 cmdWrite:
 	'Redijo' 'humildemente' 'o' 'valor de' type ID SEMICOLON;
 
-cmd_assign:
-    'Declaro' 'que' 'o' type? ID SERA 'agraciado' 'com' 'o' 'valor' expr SEMICOLON;
+cmdDeclare:
+	'Declaro' 'que' 'o' type ID SERA 'agraciado' 'com' 'o' 'valor' expr SEMICOLON
+	| 'Declaro' 'o' type ID SEMICOLON;
 SERA: 'será';
+
+cmdAssign:
+	'Proclamo' 'que' ID 'receba' 'a' GRACA 'do' 'valor' expr SEMICOLON;
+GRACA: 'graça';
 
 cmdLogic: (ID | expr) COMPARE (ID | expr);
 
@@ -49,31 +65,29 @@ COMMENT: '/*' .*? '*/' -> skip;
 
 // if else statement
 if_stmt:
-    'Se' 'porventura' cmdLogic 'logo' COLON block
-    (elif_stmt)* (else_stmt)?
-    (else_stmt)?
-    'Assim' 'finaliza-se' 'a' HIPOTESE DOT;
+	'Se' 'porventura' cmdLogic 'logo' COLON block (elif_stmt)* (
+		else_stmt
+	)? (else_stmt)? 'Assim' 'finaliza-se' 'a' HIPOTESE DOT;
 HIPOTESE: 'hipótese';
 
-elif_stmt:
-    'Porém' 'se' cmdLogic 'logo' COLON block;
+elif_stmt: 'Porém' 'se' cmdLogic 'logo' COLON block;
 
 else_stmt: 'Caso' CONTRARIO COLON block;
 CONTRARIO: 'contrário';
 
 // while statement
 while_stmt:
-	'Enquanto' 'a' 'razão' 'permitir' 'que' cmdLogic ', ' 'que' 'se' 'cumpra' COLON block
-    'Até' 'que' 'o' 'sacro' 'scriptum' 'demonstre' 'sua' 'invalidez' DOT;
+	'Enquanto' 'a' 'razão' 'permitir' 'que' cmdLogic ', ' 'que' 'se' 'cumpra' COLON block 'Até'
+		'que' 'o' 'sacro' 'scriptum' 'demonstre' 'sua' 'invalidez' DOT;
 
 do_while_stmt:
-	'Que' 'se' 'execute' 'com' 'esmero' COLON block
-	'Enquanto' 'o' 'método' 'assim' 'o' 'exigir' 'e' cmdLogic DOT;
+	'Que' 'se' 'execute' 'com' 'esmero' COLON block 'Enquanto' 'o' 'método' 'assim' 'o' 'exigir' 'e'
+		cmdLogic DOT;
 
 COMPARE:
 	'revelar-se como maior que'
 	| 'revelar-se como menor que'
-	| 'revelar-se como símile a' 
+	| 'revelar-se como símile a'
 	| 'revelar-se como maior ou igual que'
 	| 'revelar-se como menor ou igual que'
 	| 'revelar-se como díspar a';
@@ -86,5 +100,5 @@ expr_mult:
 	expr_sum MULT expr_mult
 	| expr_sum DIV expr_mult
 	| expr_sum;
-expr_sum: ABRE_P expr FECHA_P | FLOAT | INTEGER | ID;
 
+expr_sum: ABRE_P expr FECHA_P | FLOAT | INTEGER | ID;

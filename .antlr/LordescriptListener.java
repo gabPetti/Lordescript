@@ -1,5 +1,4 @@
-// Generated from Lordescript.g4 by ANTLR 4.13.2
-package parser;
+// Generated from /home/gabpetti/repos/Lordescript/Lordescript.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -58,25 +57,15 @@ public interface LordescriptListener extends ParseTreeListener {
 	 */
 	void exitCmdWrite(LordescriptParser.CmdWriteContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LordescriptParser#cmdDeclare}.
+	 * Enter a parse tree produced by {@link LordescriptParser#cmd_assign}.
 	 * @param ctx the parse tree
 	 */
-	void enterCmdDeclare(LordescriptParser.CmdDeclareContext ctx);
+	void enterCmd_assign(LordescriptParser.Cmd_assignContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LordescriptParser#cmdDeclare}.
+	 * Exit a parse tree produced by {@link LordescriptParser#cmd_assign}.
 	 * @param ctx the parse tree
 	 */
-	void exitCmdDeclare(LordescriptParser.CmdDeclareContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link LordescriptParser#cmdAssign}.
-	 * @param ctx the parse tree
-	 */
-	void enterCmdAssign(LordescriptParser.CmdAssignContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LordescriptParser#cmdAssign}.
-	 * @param ctx the parse tree
-	 */
-	void exitCmdAssign(LordescriptParser.CmdAssignContext ctx);
+	void exitCmd_assign(LordescriptParser.Cmd_assignContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LordescriptParser#cmdLogic}.
 	 * @param ctx the parse tree

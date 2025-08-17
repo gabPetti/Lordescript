@@ -26,5 +26,6 @@ public class Main {
 		num4 = num4 * num4;
 		System.out.println(num4);
 		} while (num4 < 20);
+		scan.close();
 	}
 }

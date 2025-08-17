@@ -1,5 +1,4 @@
-// Generated from Lordescript.g4 by ANTLR 4.13.2
-package parser;
+// Generated from /home/gabpetti/repos/Lordescript/Lordescript.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -9,9 +8,9 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue", "this-escape"})
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
 public class LordescriptParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.13.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.13.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -136,19 +135,6 @@ public class LordescriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_prog; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).enterProg(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).exitProg(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LordescriptVisitor ) return ((LordescriptVisitor<? extends T>)visitor).visitProg(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ProgContext prog() throws RecognitionException {
@@ -211,19 +197,6 @@ public class LordescriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_block; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).enterBlock(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).exitBlock(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LordescriptVisitor ) return ((LordescriptVisitor<? extends T>)visitor).visitBlock(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final BlockContext block() throws RecognitionException {
@@ -296,19 +269,6 @@ public class LordescriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cmd; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).enterCmd(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).exitCmd(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LordescriptVisitor ) return ((LordescriptVisitor<? extends T>)visitor).visitCmd(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final CmdContext cmd() throws RecognitionException {
@@ -401,19 +361,6 @@ public class LordescriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cmdRead; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).enterCmdRead(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).exitCmdRead(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LordescriptVisitor ) return ((LordescriptVisitor<? extends T>)visitor).visitCmdRead(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final CmdReadContext cmdRead() throws RecognitionException {
@@ -473,19 +420,6 @@ public class LordescriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cmdWrite; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).enterCmdWrite(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).exitCmdWrite(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LordescriptVisitor ) return ((LordescriptVisitor<? extends T>)visitor).visitCmdWrite(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final CmdWriteContext cmdWrite() throws RecognitionException {
@@ -536,19 +470,6 @@ public class LordescriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cmdDeclare; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).enterCmdDeclare(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).exitCmdDeclare(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LordescriptVisitor ) return ((LordescriptVisitor<? extends T>)visitor).visitCmdDeclare(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final CmdDeclareContext cmdDeclare() throws RecognitionException {
@@ -627,19 +548,6 @@ public class LordescriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cmdAssign; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).enterCmdAssign(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).exitCmdAssign(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LordescriptVisitor ) return ((LordescriptVisitor<? extends T>)visitor).visitCmdAssign(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final CmdAssignContext cmdAssign() throws RecognitionException {
@@ -698,19 +606,6 @@ public class LordescriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cmdLogic; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).enterCmdLogic(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).exitCmdLogic(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LordescriptVisitor ) return ((LordescriptVisitor<? extends T>)visitor).visitCmdLogic(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final CmdLogicContext cmdLogic() throws RecognitionException {
@@ -793,19 +688,6 @@ public class LordescriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_if_stmt; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).enterIf_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).exitIf_stmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LordescriptVisitor ) return ((LordescriptVisitor<? extends T>)visitor).visitIf_stmt(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final If_stmtContext if_stmt() throws RecognitionException {
@@ -897,19 +779,6 @@ public class LordescriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_elif_stmt; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).enterElif_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).exitElif_stmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LordescriptVisitor ) return ((LordescriptVisitor<? extends T>)visitor).visitElif_stmt(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Elif_stmtContext elif_stmt() throws RecognitionException {
@@ -954,19 +823,6 @@ public class LordescriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_else_stmt; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).enterElse_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).exitElse_stmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LordescriptVisitor ) return ((LordescriptVisitor<? extends T>)visitor).visitElse_stmt(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Else_stmtContext else_stmt() throws RecognitionException {
@@ -1010,19 +866,6 @@ public class LordescriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_while_stmt; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).enterWhile_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).exitWhile_stmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LordescriptVisitor ) return ((LordescriptVisitor<? extends T>)visitor).visitWhile_stmt(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final While_stmtContext while_stmt() throws RecognitionException {
@@ -1100,19 +943,6 @@ public class LordescriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_do_while_stmt; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).enterDo_while_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).exitDo_while_stmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LordescriptVisitor ) return ((LordescriptVisitor<? extends T>)visitor).visitDo_while_stmt(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Do_while_stmtContext do_while_stmt() throws RecognitionException {
@@ -1177,19 +1007,6 @@ public class LordescriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_type; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).enterType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).exitType(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LordescriptVisitor ) return ((LordescriptVisitor<? extends T>)visitor).visitType(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final TypeContext type() throws RecognitionException {
@@ -1236,19 +1053,6 @@ public class LordescriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expr; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).enterExpr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).exitExpr(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LordescriptVisitor ) return ((LordescriptVisitor<? extends T>)visitor).visitExpr(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ExprContext expr() throws RecognitionException {
@@ -1314,19 +1118,6 @@ public class LordescriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expr_mult; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).enterExpr_mult(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).exitExpr_mult(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LordescriptVisitor ) return ((LordescriptVisitor<? extends T>)visitor).visitExpr_mult(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Expr_multContext expr_mult() throws RecognitionException {
@@ -1392,19 +1183,6 @@ public class LordescriptParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expr_sum; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).enterExpr_sum(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LordescriptListener ) ((LordescriptListener)listener).exitExpr_sum(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LordescriptVisitor ) return ((LordescriptVisitor<? extends T>)visitor).visitExpr_sum(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final Expr_sumContext expr_sum() throws RecognitionException {
