@@ -58,15 +58,25 @@ public interface LordescriptListener extends ParseTreeListener {
 	 */
 	void exitCmdWrite(LordescriptParser.CmdWriteContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LordescriptParser#cmd_assign}.
+	 * Enter a parse tree produced by {@link LordescriptParser#cmdDeclare}.
 	 * @param ctx the parse tree
 	 */
-	void enterCmd_assign(LordescriptParser.Cmd_assignContext ctx);
+	void enterCmdDeclare(LordescriptParser.CmdDeclareContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LordescriptParser#cmd_assign}.
+	 * Exit a parse tree produced by {@link LordescriptParser#cmdDeclare}.
 	 * @param ctx the parse tree
 	 */
-	void exitCmd_assign(LordescriptParser.Cmd_assignContext ctx);
+	void exitCmdDeclare(LordescriptParser.CmdDeclareContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LordescriptParser#cmdAssign}.
+	 * @param ctx the parse tree
+	 */
+	void enterCmdAssign(LordescriptParser.CmdAssignContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LordescriptParser#cmdAssign}.
+	 * @param ctx the parse tree
+	 */
+	void exitCmdAssign(LordescriptParser.CmdAssignContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LordescriptParser#cmdLogic}.
 	 * @param ctx the parse tree

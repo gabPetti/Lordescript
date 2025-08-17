@@ -77,13 +77,25 @@ public class LordescriptBaseListener implements LordescriptListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCmd_assign(LordescriptParser.Cmd_assignContext ctx) { }
+	@Override public void enterCmdDeclare(LordescriptParser.CmdDeclareContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCmd_assign(LordescriptParser.Cmd_assignContext ctx) { }
+	@Override public void exitCmdDeclare(LordescriptParser.CmdDeclareContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCmdAssign(LordescriptParser.CmdAssignContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCmdAssign(LordescriptParser.CmdAssignContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

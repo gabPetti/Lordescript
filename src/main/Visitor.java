@@ -2,11 +2,8 @@ package main;
 
 import parser.LordescriptBaseVisitor;
 import parser.LordescriptParser;
-import org.antlr.v4.runtime.tree.TerminalNode;
-import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class Visitor extends LordescriptBaseVisitor<String> {
     @Override
@@ -31,7 +28,7 @@ public class Visitor extends LordescriptBaseVisitor<String> {
             return sb.toString();
         } catch (Exception e) {
             System.err.println("ERROR: " + e.getMessage());
-            return "Um infortúnio assolou a transmutação do vosso sacro scriptum";
+            return "error";
         }
     }
 
@@ -45,24 +42,38 @@ public class Visitor extends LordescriptBaseVisitor<String> {
                 return "double";
             default:
                 throw new RuntimeException(
-                        "Este plebeu tipo '" + type + "' não tem lugar em nosso reino de variáveis nobres");
+                        "Este plebeu tipo \"" + type + "\" não tem lugar em nosso reino de variáveis nobres");
         }
     }
 
     @Override
-    public String visitCmd_assign(LordescriptParser.Cmd_assignContext ctx) {
+    public String visitCmdDeclare(LordescriptParser.CmdDeclareContext ctx) {
         String varName = ctx.ID().getText();
 
         if (symbolTable.containsKey(varName)) {
-            return "\t\t" + varName + " = " + visit(ctx.expr()) + ";\n";
-            // throw new RuntimeException("Atesto perante a corte que o ilustre nome '" +
-            // varName + "' já foi consagrado nos anais deste reino");
+            // return "\t\t" + varName + " = " + visit(ctx.expr()) + ";\n";
+            throw new RuntimeException("Atesto perante a corte que a ilustre variável \"" +
+                    varName + "\" já foi consagrado nos anais deste reino");
         }
 
         String javaType = translateType(ctx.type().getText());
 
         symbolTable.put(varName, javaType);
         return "\t\t" + javaType + " " + varName + " = " + visit(ctx.expr()) + ";\n";
+    }
+
+    @Override
+    public String visitCmdAssign(LordescriptParser.CmdAssignContext ctx) {
+        String varName = ctx.ID().getText();
+
+        if (!symbolTable.containsKey(varName)) {
+            // return "\t\t" + varName + " = " + visit(ctx.expr()) + ";\n";
+            throw new RuntimeException("Atesto perante a corte que a variável \"" +
+                    varName
+                    + "\" se comportou de forma profana e não se declarou à realeza antes de ser agraciada com um valor");
+        }
+
+        return "\t\t" + varName + " = " + visit(ctx.expr()) + ";\n";
     }
 
     @Override

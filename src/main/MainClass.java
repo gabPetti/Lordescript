@@ -72,12 +72,16 @@ public class MainClass {
             parser = new LordescriptParser(tokenStream);
             ParseTree tree = parser.prog(); // Entry rule
 
-            Trees.inspect(tree, parser); // open the GUI tree viewer
+            // Trees.inspect(tree, parser); // open the GUI tree viewer
 
             // System.out.println(formatTree(tree, parser)); // outputs tree in console
 
             // Transpile the parse tree to Java code
             String output = new Visitor().visit(tree);
+            if (output.equals("error")) {
+                System.err.println("Um infortúnio profano assolou a transmutação do vosso sacro scriptum");
+                return;
+            }
             outputInFile(output);
         } catch (Exception e) {
             System.err.println("ERROR: " + e.getMessage());

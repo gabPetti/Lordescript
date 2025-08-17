@@ -41,11 +41,17 @@ public interface LordescriptVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCmdWrite(LordescriptParser.CmdWriteContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LordescriptParser#cmd_assign}.
+	 * Visit a parse tree produced by {@link LordescriptParser#cmdDeclare}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCmd_assign(LordescriptParser.Cmd_assignContext ctx);
+	T visitCmdDeclare(LordescriptParser.CmdDeclareContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LordescriptParser#cmdAssign}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCmdAssign(LordescriptParser.CmdAssignContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LordescriptParser#cmdLogic}.
 	 * @param ctx the parse tree
