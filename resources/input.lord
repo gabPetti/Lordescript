@@ -1,33 +1,34 @@
 Caro compilador,
 
-Declaro que o fracionário num1 será agraciado com o valor 20.2;
-Redijo humildemente o valor de fracionário num2;
+Ordeno que mostre ao mundo o valor de "digite um número: ";
+Redijo humildemente o valor de fracionário num1;
 
 Se porventura num1 revelar-se como maior que 20 logo:
-    Ordeno que mostre ao mundo o valor de "é maior";
+    Ordeno que mostre ao mundo o valor de "número digitado maior que 20";
 Porém se num1 revelar-se como menor que 20 logo:
-    Ordeno que mostre ao mundo o valor de "é menor";
-Porém se num1 revelar-se como díspar a 20 logo:
-    Ordeno que mostre ao mundo o valor de num1;
+    Ordeno que mostre ao mundo o valor de "número digitado menor que 20";
 Caso contrário:
-    Ordeno que mostre ao mundo o valor de "num1 é 20 rapaziada";
+    Ordeno que mostre ao mundo o valor de "número digitado igual a 20";
 Assim finaliza-se a hipótese.
 
-Ordeno que mostre ao mundo o valor de "whiles e do whiles";
-
-Declaro que o fracionário num3 será agraciado com o valor 8;
-
-Enquanto a razão permitir que num3 revelar-se como menor que 10, que se cumpra:
-    Proclamo que num3 receba a graça do valor num3 + 1;
-    Ordeno que mostre ao mundo o valor de "tristeza";
+Ordeno que mostre ao mundo o valor de "digite um número inteiro maior que 1: ";
+Redijo humildemente o valor de inteiro num2;
+Ordeno que mostre ao mundo o valor de "Contagem regressiva para explodir a bomba";
+Enquanto a razão permitir que num2 revelar-se como maior que 0, que se cumpra:
+    Ordeno que mostre ao mundo o valor de num2;
+    Ordeno que mostre ao mundo o valor de "...";
+    Proclamo que num2 receba a graça do valor num2 - 1;
 Até que o sacro scriptum demonstre sua invalidez.
+Ordeno que mostre ao mundo o valor de "BOOOM";
 
-Redijo humildemente o valor de fracionário num4;
+Ordeno que mostre ao mundo o valor de "digite um número maior que 1: ";
+Redijo humildemente o valor de fracionário num2;
 Que se execute com esmero:
-    Ordeno que mostre ao mundo o valor de "o quadrado é";
-    Proclamo que num4 receba a graça do valor num4 * num4;
-    Ordeno que mostre ao mundo o valor de num4;
-Enquanto o método assim o exigir e num4 revelar-se como menor que 20.
+    Ordeno que mostre ao mundo o valor de "a soma do quadrado do numero digitado e 5 é";
+    Proclamo que num3 receba a graça do valor 5 + num3 * num3;
+    Ordeno que mostre ao mundo o valor de num3;
+Enquanto o método assim o exigir e num3 revelar-se como menor ou igual que 1000.
+Ordeno que mostre ao mundo o valor de "numero acima é maior que 1000";
 
 Assinado com distinção,
 Lordescript
